@@ -1,0 +1,23 @@
+{# authors.html.twig #}
+
+<table border=1>
+    <thead>
+        <tr>
+            <th>Author Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for a in author %}
+            <tr>
+                <td>{{ a.username }}</td>
+                <td>{{ a.email }}</td>
+                <td>
+                    <a href="{{ path('app_edit_author', {'id': a.id}) }}">Edit</a>
+                    <a href="{{ path('app_delete_author', {'id': a.id}) }}" onclick="return confirm('Are you sure you want to delete this author?')">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

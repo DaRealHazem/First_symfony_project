@@ -1,0 +1,48 @@
+{# templates/book/add_book.html.twig #}
+
+
+{#
+<h1>Add a Book</h1>
+
+{{ form_start(form) }}
+{{ form_row(form.title) }}
+{{ form_row(form.category) }}
+{{ form_row(form.publication_Date) }}
+{{ form_row(form.published) }}
+
+
+<button type="submit" class="btn btn-primary">Add Book</button>
+{{ form_end(form) }}
+
+
+
+#}
+
+
+{# templates/book/add_book.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Add a New Book{% endblock %}
+
+{% block body %}
+    <h1>Add a New Book</h1>
+
+    {{ form_start(form) }}
+
+    {{ form_row(form.title) }}
+
+    {{ form_row(form.category) }}
+
+    {{ form_row(form.publicationDate) }}
+
+    {{ form_row(form.published) }}
+
+    {{ form_row(form.author) }}
+
+    <button type="submit" class="btn btn-primary">Add Book</button>
+
+    {{ form_end(form) }}
+    
+    <a href="{{ path('app_affiche_book') }}">Back to Book List</a>
+{% endblock %}

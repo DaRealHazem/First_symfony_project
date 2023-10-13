@@ -1,0 +1,46 @@
+{#{{dump(authors)}}#}
+
+<style>
+.author-image {
+    width: 100px; /* Adjust the width as needed */
+    height: 100px; /* Adjust the height as needed */
+}
+.author-table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .author-table, .author-table th, .author-table td {
+        border: 1px solid #000;
+        text-align: center;
+    }
+
+    .author-table th, .author-table td {
+        padding: 10px;
+    }
+</style>
+
+{% if authors is not defined or authors is empty %}
+    le tableau n'est pas défini/est vide
+{% else %}
+    <table class="author-table">
+            <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Portrait</td>
+            <td>Books</td>
+            <td>Details</td>
+            </tr>
+        {% for unit in authors %}
+            <tr>
+                <td>{{ unit.id }}</td>
+                <td>{{ unit.username|upper }}</td>
+                <td><img src="{{ unit.picture }}" alt="{{ unit.username }}'s picture" class="author-image"></td>
+                <td>{{unit.nb_books}}</td>
+                <td><a href="{{ path('author_details', { 'id': unit.id }) }}">Details</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+
+
