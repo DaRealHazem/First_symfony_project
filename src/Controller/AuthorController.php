@@ -117,7 +117,7 @@ public function addStatique(AuthorRepository $repository) : Response {
 public function addStatique(Request $request, ManagerRegistry $doctrine): Response {
     $author = new Author();
     $form = $this->createForm(AuthorType::class, $author);
-
+    $form->add('ajouter', SubmitType::class);
     $form->handleRequest($request);
 
     if ($form->isSubmitted() && $form->isValid()) {

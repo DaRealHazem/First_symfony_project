@@ -30,9 +30,7 @@ class BookType extends AbstractType
                     'Autobiography' => 'Autobiography',
                 ],
             ])
-            ->add('reference', TextType::class, [
-                'mapped' => false,
-            ])
+            
             ->add('author', EntityType::class, [
                 'class' => Author::class,
                 'choice_label' => 'username',
@@ -47,7 +45,7 @@ class BookType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Book::class,
-            'entity_manager' => null, // Custom option to pass the EntityManager
+            // Custom option to pass the EntityManager
         ]);
     }
 }

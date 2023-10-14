@@ -13,7 +13,7 @@ class Book
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?string $ref = null;
+    private ?int $ref = null;
 
     #[ORM\Column(length: 255)]
     private ?string $title = null;
@@ -30,10 +30,12 @@ class Book
     #[ORM\ManyToOne(inversedBy: 'books')]
     private ?Author $author = null;
 
-    public function getRef(): ?string
+    public function getRef(): ?int
     {
         return $this->ref;
     }
+
+    
 
     public function getTitle(): ?string
     {
