@@ -93,10 +93,22 @@ public function delete(int $ref, BookRepository $repository): Response
 
     return $this->redirectToRoute('app_affiche_book');
 }
+
+#[Route('/ShowBook/{ref}', name: 'app_show_book')]
+
+    public function showBook($ref, BookRepository $repository)
+    {
+        $book = $repository->find($ref);
+        if (!$book) {
+            return $this->redirectToRoute('app_affiche_book');
+        }
+
+        return $this->render('book/show_book.html.twig', ['b' => $book]);
+
     
+    }
+
 }
-
-
 
 /*
 public function addBook(Request $request, EntityManagerInterface $entityManager): Response
